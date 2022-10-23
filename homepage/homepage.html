@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav{
+            width: 99%;
+            display: flex;
+            justify-content: space-around;
+            color: rgba(0, 0, 0, 0.774);
+            font-size: 16px;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        nav h3{
+            cursor: pointer;
+        }
+        nav h3:hover{
+            text-decoration:underline;
+            transition: 0.5s;
+            color: red;
+        }
+        #mobile-nav{
+            display: flex;
+            justify-content: space-around;
+        }
+        .all{
+            display: flex;
+            justify-content: space-around;
+        }
+        #input{
+            padding-left: 10px;
+            height: 2.5rem;
+            font-size: 16px;
+            width: 390px;
+            outline: none;
+            border: none;
+        }
+        #search{
+            padding-right: 10px;
+            cursor: pointer;
+            float: right;
+        }
+        #searchprops{
+        width: 100%;
+        margin: auto;
+        width: fit-content;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px,
+         rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+        display: flex;
+        border: 1px solid rgba(128, 128, 128, 0.445);
+        }
+        #left{
+            width: 50%;
+        }
+        #right{
+            width: 25%;
+        }   
+        #one{
+            width: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.568);
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+            height: 250px;
+        }
+        .center{
+            text-align: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        #details{
+           display: flex;
+           justify-content: space-around;
+           flex-wrap: wrap;
+        }
+        #card{
+          width: 240px;
+          border: 1px solid rgba(0, 0, 0, 0.651);
+          box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+          height: 320px;
+          margin-top: 20px;
+        }
+        #card p{
+            font-size: 15px;
+        }
+        #properties{
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        #props{
+            width: 250px;
+            height: 290px;
+            box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+          height: 320px;
+            border: 1px solid rgba(0, 0, 0, 0.349);
+        }
+        #actions{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 30px;
+        }
+        /* .det{
+          color: white;
+          background-color: blue;
+        }
+        .det:hover{
+            background-color: lightblue;
+            transition: 0.3s;
+        } */
+        #prop-pic{
+            width: 100%;
+            height: 45%;
+            border: 1px solid whitesmoke;
+        }
+        #favorites{
+            /* margin-left: 5%; */
+            position: absolute;
+            background: transparent;
+            border: none;
+        }
+        @media screen and (min-width:700px){
+            #mobile-nav{
+                display: none;
+            }
+        }
+        @media screen and (max-width:700px){
+            #sidenav{
+            width: 90%;
+            height: 90%;
+            border: 1px solid whitesmoke;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+            overflow: auto;
+            background-color: white;
+            display: none;
+            position: absolute;
+        }
+        #card{
+            width: 170px;
+            height: 350px;
+        }
+        #one{
+            margin-top: 10px;
+        }
+            #input{
+                width: 70%;
+                height: 35px;
+            }
+            #search{
+                padding-left: 5px;
+            }
+          nav{
+            display: none;
+          }
+          #sidenavcancel{
+            float: right;
+            width: 28px;
+            height: 28px;
+            margin-right: 6px;
+            cursor: pointer;
+            margin-top: 4px;
+          }
+          #mobile-nav{
+            display: inherit;
+          }
+          #list{
+            width: 30px;
+            height: 30px;
+            border: none;
+            background-color: transparent;
+        }
+        #mobile-signin{
+            float: right;
+            border: none;
+            background-color: transparent;
+        }
+        }
+    </style>
+    <style>
+        .lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: none;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: red;
+  margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+    </style>
+</head>
+<body>
+    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <nav>
+        <div id="left" class="all">
+        <h3>Buy</h3>
+        <h3>Sell</h3>
+        <h3>Rent</h3>
+        <h3>Mortgage</h3>
+        <h3>Agent Finder</h3>
+        </div>
+      <div id="right" class="all">
+        <h3>Help</h3>
+        <h3>Advertise</h3>
+        <h3>Sign in</h3>
+      </div>
+    </nav>
+    <nav id="mobile-nav">
+        <div id="sidenav">
+            <img src="../icons/x-square-fill.svg" alt="" id="sidenavcancel" onclick="sidenavclose()">
+        </div>
+       <button onclick="openclosenav()"><img src="../icons/list.svg" alt="" id="list" class></button>
+       <button id="mobile-signin">Sign in</button>
+    </nav>
+    <div id="one">
+   <h1 class="center">Find It. Tour It. Own It</h1>
+   <h3 class="center">Helping Millions Of Renters Find Their Perfect Fit</h3>
+   <div id="searchprops">
+<input type="text" id="input" placeholder="Enter an address, neighborhood, city or postcode">
+<img src="../icons/search (1).svg" alt="" id="search" onclick="searchprops()">
+   </div>
+    </div>
+    <div id="properties">
+      <div id="props">
+        <div id="prop-pic" >
+         <img src="../images/Emperor j shopping centre.png" alt="" style="width: 100%;height: 100%;">
+         <button id="favorites" onclick="favor()"><img src="../icons/heart.svg" alt="" style="width: 29.5px;height: 29.5px;"></button>
+        </div>
+        <div>
+         <h1>HOME 1</h1>
+         <h3>5000</h3>
+         <h3>NIGERIA</h3>
+        </div>
+       </div>
+    </div>
+    <div id="details">
+        <div id="card">
+          <img src="../images/buying a house 123416616167.jpg" alt="" style="width: 100%;height: 50%">
+          <h3 class="center">Buy A House</h3>
+          <p class="center">Find your place with an immersive photo experience and the most listings</p>
+          <button class="det">Browse Homes</button>
+        </div>
+        <div id="card">
+          <img src="../images/selling a house.jpg" alt="" style="width: 100%;height: 50%">
+          <h3 class="center">Sell A House</h3>
+          <p class="center">No matter what path you take to sell your home, we can help you navigate a successful sale.</p>
+          <button class="det">Start Selling</button>
+        </div>
+        <div id="card">
+          <img src="../images/renting a house.jpg" alt="" style="width: 100%;height: 50%">
+          <h3 class="center">Rent A House</h3>
+          <p class="center">No matter what path you take to sell your home, we can help you navigate a successful sale.</p>
+          <button class="det">Find Rentals</button>
+        </div>
+        <div id="card">
+           <img src="../images/mortgage.avif" alt="" style="width: 100%;height: 50%">
+           <h3 class="center">Mortgage</h3>
+           <p class="center">Don't have enough for a house? apply for a mortage and live in your dream house</p>
+           <button class="det">Apply Now</button>
+        </div>
+    </div>
+    <!-- <div id="actions">
+       <div><img src="../images/REAL ESTATE AGENCY.png" alt="" style="width: 350px;height: 200px;border-radius: 2px;"></div>
+       <div></div>
+    </div> -->
+    <button id="heart"></button>
+</body>
+</html>
+<script>
+    let [sidenav,input] = [
+       document.getElementById('sidenav'),
+       document.getElementById('input')
+    ]
+    let getproperties = JSON.parse(localStorage.getItem('properties'));
+const searchprops = () => {
+ document.getElementById('properties').innerHTML = ``
+ let Availproduct = getproperties.filter(e => {
+    return e.name.includes(input.value) 
+
+  })
+  for (let index = 0; index < Availproduct.length; index++) {
+    const element = Availproduct[index];
+    document.getElementById('properties').innerHTML += `
+    <div id="props">
+       <div id="prop-pic" >
+        <img src="${element.image}" alt="" style="width: 80%;height: 100%;">
+        <button id="favorites" onclick="favor(${index})"><img src="../icons/heart.svg" alt="" style="width: 29.5px;height: 29.5px;"></button>
+       </div>
+       <div>
+        <h1>${element.name}</h1>
+        <h3>${element.price}</h3>
+        <h3>${element.location}</h3>
+       </div>
+      </div>
+    `
+}
+}
+const openclosenav = () => {
+    sidenav.style.display = 'inherit'
+}
+const sidenavclose = () => {
+    sidenav.style.display = 'none'
+}
+let favors = 0
+let favorArray = []
+const favor = (index) => {
+if (favors == 0) {
+    favorArray.push(properties[index])
+    // index.target.src = '../icons/heart-fill.svg'
+    favors = 1
+} else {
+    favorArray.splice(index,1)
+    // e.target.src = '../icons/heart.svg'
+    favors = 0
+}
+}
+console.log(favorArray);
+// console.log(favorArray)
+let properties = [
+    {image: 'https://ap.rdcpix.com/cba11a06b99856b91931fe9ca8aa3704l-m56688181od-w480_h360.webp',location: 'America',price:40000,name:'Home 1'},
+    {image: 'https://ap.rdcpix.com/f74cb3404b09c895aec402df7a6df68bl-m955561771od-w480_h360.webp',location: 'England',price:67600,name:'Home 2'},
+    {image: 'https://ap.rdcpix.com/15490dea45a13a3f69d6e2f6ea9911c6l-m3978775678od-w480_h360.webp',location: 'Germany',price:78766,name:'Home 3'}
+]
+localStorage.setItem('properties', JSON.stringify(properties))
+// properties.map((value,index) => {
+//     document.getElementById('properties').innerHTML += `
+//     <div id="props">
+//        <div id="prop-pic" >
+//         <img src="${value.image}" alt="" style="width: 100%;height: 100%;">
+//         <button id="favorites" onclick="favor(${index})"><img src="../icons/heart.svg" alt="" style="width: 29.5px;height: 29.5px;"></button>
+//        </div>
+//        <div>
+//         <h1>${value.name}</h1>
+//         <h3>${value.price}</h3>
+//         <h3>${value.location}</h3>
+//        </div>
+//       </div>
+//     `
+// })
+</script>
